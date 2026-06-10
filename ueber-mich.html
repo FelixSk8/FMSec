@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über mich — Felix Müller, IT-Security Consultant Würzburg</title>
+<meta name="description" content="IT Cyber Security Advisor (IHK), ISO/IEC 27001 Lead Implementer, Praxis in kritischer Infrastruktur: über Felix Müller.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c0d14;
+  --paper:#f2f3f8;
+  --cobalt:#2230e8;
+  --cobalt-deep:#10157d;
+  --signal:#ff4d12;
+  --tint:#c9ceff;
+  --line:rgba(12,13,20,.12);
+  --radius:20px;
+  --font-display:'Unbounded',sans-serif;
+  --font-body:'Archivo',sans-serif;
+  --font-mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden}
+::selection{background:var(--signal);color:#fff}
+
+/* ---------- Utilities ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.wrap-narrow{max-width:860px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--signal);display:inline-block}
+.section{padding:100px 0}
+h2{font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.15;letter-spacing:-.01em;margin:18px 0 16px}
+h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;line-height:1.3}
+.lead{font-size:1.12rem;max-width:660px;color:rgba(12,13,20,.78)}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}.reveal.d4{transition-delay:.4s}
+
+/* ---------- Nav ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 0;transition:background .35s,box-shadow .35s,padding .35s}
+nav.scrolled{background:rgba(242,243,248,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-display);font-weight:900;font-size:1rem;text-decoration:none;color:var(--cobalt);letter-spacing:.02em;transition:color .35s}
+.logo span{color:var(--ink)}
+.nav-links{display:flex;gap:28px;align-items:center;list-style:none}
+.nav-links a{font-size:.92rem;font-weight:600;text-decoration:none;color:inherit;position:relative}
+.nav-links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-5px;height:2px;width:0;background:var(--signal);transition:width .3s}
+.nav-links a:not(.btn):hover::after{width:100%}
+.nav-links a.active::after{width:100%}
+nav.on-hero{color:#fff}
+nav.on-hero .logo{color:#fff}
+nav.on-hero .logo span{color:var(--tint)}
+nav.scrolled.on-hero{color:var(--ink)}
+nav.scrolled.on-hero .logo{color:var(--cobalt)}
+nav.scrolled.on-hero .logo span{color:var(--ink)}
+.nav-toggle{display:none}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.96rem;text-decoration:none;padding:14px 26px;border-radius:999px;border:2px solid transparent;transition:transform .25s,box-shadow .25s,background .25s,color .25s;cursor:pointer;font-family:var(--font-body)}
+.btn-primary{background:var(--signal);color:#fff}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(255,77,18,.35)}
+.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
+.btn-ghost:hover{transform:translateY(-3px)}
+.btn .arr{transition:transform .25s}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-sm{padding:10px 22px;font-size:.88rem}
+
+/* ---------- Hero (Startseite) ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;background:radial-gradient(1200px 600px at 85% -10%,rgba(255,77,18,.28),transparent 55%),radial-gradient(900px 700px at -10% 110%,rgba(201,206,255,.2),transparent 60%),linear-gradient(160deg,var(--cobalt) 0%,var(--cobalt-deep) 100%);color:#fff;position:relative;overflow:hidden;padding-top:120px}
+.hero .wrap{position:relative;z-index:2}
+.hero-eyebrow{color:var(--tint)}
+.hero h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2.2rem,5.6vw,4.4rem);line-height:1.06;letter-spacing:-.015em;margin:26px 0 24px;max-width:15ch}
+.hero h1 .accent,.sub-hero h1 .accent{background:linear-gradient(90deg,#ff4d12,#ff8a3d);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:clamp(1.05rem,1.6vw,1.25rem);max-width:560px;color:rgba(255,255,255,.85)}
+.hero-cta{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+.hero .stagger,.sub-hero .stagger{opacity:0;transform:translateY(36px);animation:rise .9s cubic-bezier(.2,.7,.2,1) forwards}
+.s1{animation-delay:.15s}.s2{animation-delay:.3s}.s3{animation-delay:.5s}.s4{animation-delay:.7s}
+@keyframes rise{to{opacity:1;transform:none}}
+.para-glyph{position:absolute;right:-4vw;top:50%;transform:translateY(-54%);width:min(46vw,560px);height:auto;z-index:1;pointer-events:none}
+.para-glyph text{font-family:var(--font-display);font-weight:900;fill:none;stroke:rgba(255,255,255,.34);stroke-width:1.6;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3.2s ease forwards .5s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.para-glyph .pulse{fill:none;stroke:var(--signal);stroke-width:1.6;opacity:0;stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 3.2s ease forwards 1s,glow 5s ease-in-out infinite 4.5s}
+@keyframes glow{0%,100%{opacity:.18}50%{opacity:.65}}
+.float{animation:floaty 9s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(-54%)}50%{transform:translateY(-50%)}}
+.marquee{position:absolute;bottom:0;left:0;right:0;z-index:3;border-top:1px solid rgba(255,255,255,.18);background:rgba(12,13,20,.25);backdrop-filter:blur(4px);overflow:hidden;padding:14px 0;white-space:nowrap}
+.marquee-track{display:inline-block;animation:scroll 26s linear infinite}
+.marquee span{font-family:var(--font-mono);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);margin:0 28px}
+.marquee span::after{content:"✦";margin-left:56px;color:var(--signal)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- Sub-Hero (Unterseiten) ---------- */
+.sub-hero{padding:190px 0 90px;background:radial-gradient(900px 500px at 90% -20%,rgba(255,77,18,.25),transparent 55%),linear-gradient(155deg,var(--cobalt) 0%,var(--cobalt-deep) 100%);color:#fff;position:relative;overflow:hidden}
+.sub-hero .eyebrow{color:var(--tint)}
+.sub-hero h1{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.1;letter-spacing:-.012em;margin:22px 0 18px;max-width:18ch}
+.sub-hero p{font-size:1.12rem;max-width:600px;color:rgba(255,255,255,.85)}
+.sub-hero .para-bg{position:absolute;font-family:var(--font-display);font-weight:900;font-size:24rem;line-height:1;color:rgba(255,255,255,.06);right:-40px;bottom:-130px;pointer-events:none;user-select:none}
+
+/* ---------- Karten ---------- */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:56px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:38px 34px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s;display:block;color:inherit;text-decoration:none}
+.card::before{content:"";position:absolute;inset:0 auto 0 0;width:6px;background:var(--cobalt);transform:scaleY(0);transform-origin:bottom;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.card:hover{transform:translateY(-8px);box-shadow:0 24px 50px rgba(16,21,125,.14)}
+.card:hover::before{transform:scaleY(1)}
+.card.featured{background:linear-gradient(150deg,var(--cobalt),var(--cobalt-deep));color:#fff;border:none}
+.card.featured::before{background:var(--signal)}
+.card .tag{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt)}
+.card.featured .tag{color:var(--tint)}
+.card h3{margin:14px 0 12px;font-size:1.25rem}
+.card p{font-size:.97rem;color:rgba(12,13,20,.72)}
+.card.featured p{color:rgba(255,255,255,.82)}
+.card ul{list-style:none;margin-top:18px;display:grid;gap:9px}
+.card li{font-size:.92rem;display:flex;gap:10px;align-items:baseline}
+.card li::before{content:"→";color:var(--signal);font-weight:700;flex:none}
+.badge{position:absolute;top:26px;right:26px;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--signal);color:#fff;padding:6px 12px;border-radius:999px}
+
+/* ---------- Fakten-Band ---------- */
+.facts{background:var(--ink);color:#fff}
+.facts .lead{color:rgba(255,255,255,.75)}
+.facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:54px}
+.fact .num{font-family:var(--font-display);font-weight:900;font-size:clamp(2.1rem,4.2vw,3.4rem);line-height:1;color:var(--signal)}
+.fact .num small{font-size:.45em;font-weight:700;color:var(--tint);margin-left:4px}
+.fact p{margin-top:12px;color:rgba(255,255,255,.72);font-size:.98rem;max-width:30ch}
+
+/* ---------- Schritte / Timeline ---------- */
+.steps{position:relative;margin-top:64px;display:grid}
+.steps::before{content:"";position:absolute;left:31px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.steps .progress{position:absolute;left:31px;top:10px;width:2px;height:0;background:linear-gradient(var(--signal),var(--cobalt))}
+.step{display:grid;grid-template-columns:64px 1fr;gap:30px;padding:30px 0;align-items:start}
+.step-num{width:64px;height:64px;border-radius:50%;flex:none;background:var(--paper);border:2px solid var(--line);display:grid;place-items:center;position:relative;z-index:1;font-family:var(--font-display);font-weight:900;font-size:.95rem;color:var(--cobalt);transition:background .4s,border-color .4s,color .4s,transform .4s;text-align:center;line-height:1.15;padding:4px}
+.step.visible .step-num{background:var(--cobalt);border-color:var(--cobalt);color:#fff;transform:scale(1.06)}
+.step h3{margin-bottom:8px}
+.step p{max-width:62ch;color:rgba(12,13,20,.72)}
+.step .date{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--signal);display:block;margin-bottom:6px}
+.steps.on-white .step-num{background:#fff}
+.steps.on-white .step.visible .step-num{background:var(--cobalt)}
+
+/* ---------- Inhaltsblöcke (NIS-2-Seite) ---------- */
+.content-block{margin-top:36px}
+.content-block p{margin-bottom:16px;color:rgba(12,13,20,.8);max-width:72ch}
+.content-block strong{color:var(--cobalt)}
+.callout{background:#fff;border-left:6px solid var(--signal);border-radius:0 16px 16px 0;padding:26px 30px;margin:32px 0;box-shadow:0 8px 24px rgba(16,21,125,.07)}
+.callout.dark{background:var(--ink);color:#fff;border-left-color:var(--signal)}
+.callout.dark p{color:rgba(255,255,255,.85)}
+.callout h3{margin-bottom:8px}
+.callout p{margin:0;color:rgba(12,13,20,.78)}
+.pill-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.pill{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;background:#fff;border:1px solid var(--line);padding:9px 16px;border-radius:999px;transition:transform .25s,border-color .25s,background .25s,color .25s}
+.pill:hover{transform:translateY(-3px);border-color:var(--cobalt);background:var(--cobalt);color:#fff}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px}
+.duo-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;transition:transform .35s,box-shadow .35s}
+.duo-card:hover{transform:translateY(-6px);box-shadow:0 20px 44px rgba(16,21,125,.12)}
+.duo-card.hot{background:linear-gradient(150deg,var(--cobalt),var(--cobalt-deep));color:#fff;border:none}
+.duo-card .tag{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cobalt)}
+.duo-card.hot .tag{color:var(--tint)}
+.duo-card h3{margin:12px 0 10px}
+.duo-card p{font-size:.95rem;color:rgba(12,13,20,.72)}
+.duo-card.hot p{color:rgba(255,255,255,.82)}
+.duo-card ul{list-style:none;margin-top:16px;display:grid;gap:8px}
+.duo-card li{font-size:.92rem;display:flex;gap:10px;align-items:baseline}
+.duo-card li::before{content:"→";color:var(--signal);font-weight:700;flex:none}
+.measure-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:40px;counter-reset:m}
+.measure{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px 22px 70px;position:relative;transition:transform .3s,box-shadow .3s;counter-increment:m}
+.measure::before{content:counter(m,decimal-leading-zero);position:absolute;left:22px;top:20px;font-family:var(--font-display);font-weight:900;font-size:1.1rem;color:var(--signal)}
+.measure:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(16,21,125,.1)}
+.measure b{display:block;font-size:.98rem;margin-bottom:4px}
+.measure span{font-size:.88rem;color:rgba(12,13,20,.65)}
+
+/* ---------- Betroffenheits-Check ---------- */
+.checker{background:linear-gradient(150deg,var(--cobalt),var(--cobalt-deep));color:#fff;border-radius:28px;padding:60px 50px;margin-top:50px;position:relative;overflow:hidden}
+.checker .para-bg{position:absolute;font-family:var(--font-display);font-weight:900;font-size:20rem;line-height:1;color:rgba(255,255,255,.05);right:-30px;bottom:-110px;pointer-events:none;user-select:none}
+.checker h3{font-size:1.5rem;margin-bottom:8px}
+.checker>p{color:rgba(255,255,255,.8);max-width:56ch}
+.checker-form{display:grid;gap:26px;margin-top:34px;position:relative;z-index:2}
+.checker-q b{display:block;margin-bottom:12px;font-size:1rem}
+.choice-row{display:flex;flex-wrap:wrap;gap:10px}
+.choice{font-family:var(--font-body);font-weight:600;font-size:.9rem;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.3);color:#fff;padding:10px 20px;border-radius:999px;cursor:pointer;transition:background .25s,border-color .25s,transform .2s}
+.choice:hover{transform:translateY(-2px);border-color:#fff}
+.choice.sel{background:var(--signal);border-color:var(--signal)}
+.checker-result{margin-top:6px;border-radius:18px;padding:26px 30px;background:rgba(12,13,20,.35);border:1px solid rgba(255,255,255,.2);opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s;display:none}
+.checker-result.show{display:block;opacity:1;transform:none}
+.checker-result b{font-family:var(--font-display);font-size:1.05rem;display:block;margin-bottom:8px}
+.checker-result p{font-size:.95rem;color:rgba(255,255,255,.85)}
+.checker-result .res-cta{margin-top:18px}
+.checker small{display:block;margin-top:22px;font-size:.78rem;color:rgba(255,255,255,.55);position:relative;z-index:2}
+
+/* ---------- Porträt ---------- */
+.portrait-wrap{position:relative;max-width:460px}
+.portrait-wrap::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:3px solid var(--cobalt);border-radius:28px;z-index:0;transition:inset .4s cubic-bezier(.2,.7,.2,1)}
+.portrait-wrap:hover::before{inset:14px -14px -14px 14px}
+.portrait{position:relative;z-index:1;border-radius:28px;overflow:hidden;box-shadow:0 24px 50px rgba(16,21,125,.18)}
+.portrait img{display:block;width:100%;height:auto;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.portrait-wrap:hover .portrait img{transform:scale(1.04)}
+.portrait .p-badge{position:absolute;left:18px;bottom:18px;background:rgba(12,13,20,.78);backdrop-filter:blur(6px);color:#fff;border-radius:14px;padding:12px 18px;z-index:2}
+.portrait .p-badge b{font-family:var(--font-display);font-size:.92rem;display:block}
+.portrait .p-badge span{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tint)}
+.portrait-mini{background:linear-gradient(150deg,var(--cobalt),var(--cobalt-deep));color:#fff;border-radius:16px;padding:20px 24px;display:flex;gap:18px;align-items:center;transition:transform .3s,box-shadow .3s}
+.portrait-mini:hover{transform:translateX(8px);box-shadow:0 12px 28px rgba(16,21,125,.25)}
+.portrait-mini img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--signal);flex:none}
+.portrait-mini b{display:block;font-family:var(--font-display);font-size:.95rem}
+.portrait-mini span{font-size:.82rem;color:var(--tint)}
+
+/* ---------- Über mich ---------- */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center;margin-top:30px}
+.about p{margin-bottom:18px;color:rgba(12,13,20,.8)}
+.about strong{color:var(--cobalt)}
+.cred-stack{display:grid;gap:16px}
+.cred{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 26px;display:flex;gap:18px;align-items:center;transition:transform .3s,box-shadow .3s}
+.cred:hover{transform:translateX(8px);box-shadow:0 12px 28px rgba(16,21,125,.1)}
+.cred .ico{width:46px;height:46px;border-radius:12px;flex:none;background:linear-gradient(150deg,var(--cobalt),var(--cobalt-deep));display:grid;place-items:center;color:#fff;font-size:1.2rem}
+.cred b{display:block;font-size:.98rem}
+.cred span{font-size:.85rem;color:rgba(12,13,20,.6)}
+
+/* ---------- CTA-Panel ---------- */
+.cta{background:radial-gradient(800px 400px at 90% 0%,rgba(255,77,18,.3),transparent 60%),linear-gradient(150deg,var(--cobalt),var(--cobalt-deep));color:#fff;border-radius:32px;padding:84px 60px;text-align:center;position:relative;overflow:hidden}
+.cta h2{max-width:22ch;margin-left:auto;margin-right:auto}
+.cta p{color:rgba(255,255,255,.82);max-width:54ch;margin:0 auto 36px}
+.cta .para-bg{position:absolute;font-family:var(--font-display);font-weight:900;font-size:30rem;line-height:1;color:rgba(255,255,255,.05);right:-60px;bottom:-140px;pointer-events:none;user-select:none}
+.cta .eyebrow{color:var(--tint)}
+
+/* ---------- Kontaktseite ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:50px;align-items:start}
+.contact-card{background:linear-gradient(150deg,var(--cobalt),var(--cobalt-deep));color:#fff;border-radius:28px;padding:50px 44px;position:relative;overflow:hidden}
+.contact-card .para-bg{position:absolute;font-family:var(--font-display);font-weight:900;font-size:16rem;line-height:1;color:rgba(255,255,255,.06);right:-30px;bottom:-90px;pointer-events:none}
+.contact-card h3{font-size:1.4rem;margin-bottom:14px}
+.contact-card p{color:rgba(255,255,255,.82);margin-bottom:26px}
+.contact-line{display:flex;gap:14px;align-items:center;margin-bottom:16px;font-size:.98rem}
+.contact-line .ico{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.14);display:grid;place-items:center;flex:none}
+.contact-line a{color:#fff;font-weight:700;text-decoration:none;border-bottom:2px solid var(--signal)}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:40px;display:grid;gap:14px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:box-shadow .3s}
+.faq details[open]{box-shadow:0 14px 30px rgba(16,21,125,.1)}
+.faq summary{cursor:pointer;padding:22px 26px;font-weight:700;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--font-display);font-weight:900;color:var(--signal);font-size:1.3rem;transition:transform .3s;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .faq-body{padding:0 26px 24px;color:rgba(12,13,20,.75);font-size:.96rem;max-width:75ch}
+
+/* ---------- Footer ---------- */
+footer{padding:50px 0 40px;font-size:.88rem;color:rgba(12,13,20,.6)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer a{color:inherit;text-decoration:none;margin-left:22px;font-weight:600}
+footer a:hover{color:var(--cobalt)}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .cards,.about-grid,.facts-grid,.duo,.measure-grid,.contact-grid{grid-template-columns:1fr}
+  .para-glyph{opacity:.4;right:-20vw;width:80vw}
+  .nav-links li.hide-m{display:none}
+  .section{padding:76px 0}
+  .cta{padding:60px 28px}
+  .checker{padding:44px 26px}
+  .about-grid{gap:40px}
+  .sub-hero{padding:150px 0 70px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .stagger,.reveal{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+</style>
+</head>
+<body>
+<nav id="nav" class="on-hero">
+  <div class="wrap">
+    <a class="logo" href="index.html">FM<span> / IT-SECURITY</span></a>
+    <ul class="nav-links"><li class="hide-m"><a href="index.html">Start</a></li><li class="hide-m"><a href="nis-2.html">NIS-2</a></li><li class="hide-m"><a href="leistungen.html">Leistungen</a></li><li class="hide-m"><a class="active" href="ueber-mich.html">Über mich</a></li><li><a class="btn btn-primary btn-sm" href="kontakt.html">Erstgespräch</a></li></ul>
+  </div>
+</nav>
+
+<header class="sub-hero">
+  <div class="para-bg" aria-hidden="true">§</div>
+  <div class="wrap">
+    <div class="eyebrow stagger s1">Über mich</div>
+    <h1 class="stagger s2">Vorschrift verstehen. <span class="accent">Maschinenraum beherrschen.</span></h1>
+    <p class="stagger s3">Felix Müller — IT-Security Consultant aus Würzburg, mit Verantwortung für IT und OT in kritischer Infrastruktur.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="about-grid" style="align-items:start">
+      <div class="about">
+        <div class="eyebrow reveal">Mein Weg</div>
+        <h2 class="reveal d1">Sicherheit ist mein Tagesgeschäft — nicht mein Verkaufsargument.</h2>
+        <div class="content-block">
+          <p class="reveal d2">Ich verantworte die IT eines <strong>kommunalen Versorgungsbetriebs</strong> — eine Umgebung, in der Büro-IT, Leittechnik und öffentliche Verwaltung zusammentreffen und in der ein Ausfall keine Option ist. NIS-2 ist für mich kein theoretisches Beratungsthema: Ich habe die Betroffenheitsanalyse, das Sicherheitskonzept und die Maßnahmenumsetzung in einem regulierten Betrieb selbst durchlaufen.</p>
+          <p class="reveal d3">Diese Doppelrolle ist mein größter Vorteil für Sie: Ich kenne die <strong>Sprache der Gremien und Werkleitungen</strong> genauso wie die Realität im Serverraum und an der Anlage. Ich weiß, welche Maßnahme auf dem Papier gut aussieht und in der Praxis scheitert — und umgekehrt.</p>
+          <p class="reveal d3">Mein Anspruch: <strong>sachlich, ehrlich, umsetzbar</strong>. Wenn etwas nicht nötig ist, sage ich es. Wenn etwas dringend ist, auch.</p>
+        </div>
+      </div>
+      <div>
+        <div class="portrait-wrap reveal d1" style="margin-bottom:46px">
+          <div class="portrait">
+            <img src="felix-mueller.jpg" alt="Felix Müller — IT-Security Consultant" width="1000" height="981">
+            <div class="p-badge"><b>Felix Müller</b><span>IT-Security Consultant</span></div>
+          </div>
+        </div>
+        <div class="cred-stack">
+          <div class="cred reveal d1"><div class="ico">✓</div><div><b>IT Cyber Security Advisor (IHK)</b><span>Zertifizierte Weiterbildung Informationssicherheit</span></div></div>
+          <div class="cred reveal d2"><div class="ico">✓</div><div><b>ISO/IEC 27001 Lead Implementer</b><span>Aufbau und Betrieb von Managementsystemen</span></div></div>
+          <div class="cred reveal d3"><div class="ico">✓</div><div><b>Praxis in kritischer Infrastruktur</b><span>IT- &amp; OT-Verantwortung im kommunalen Umfeld</span></div></div>
+          <div class="cred reveal d4"><div class="ico">✓</div><div><b>NIS-2 aus erster Hand</b><span>Eigene Umsetzung in einem regulierten Betrieb</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff">
+  <div class="wrap">
+    <div class="eyebrow reveal">Arbeitsweise</div>
+    <h2 class="reveal d1">Drei Prinzipien, an denen Sie mich messen können.</h2>
+    <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+      <div class="card reveal d1">
+        <div class="tag">Prinzip 1</div>
+        <h3>Ehrlichkeit vor Auftrag</h3>
+        <p>Sie bekommen meine echte Einschätzung — auch wenn sie lautet, dass Sie weniger brauchen, als Sie dachten. Sicherheit lebt von Vertrauen, und das beginnt beim Berater.</p>
+      </div>
+      <div class="card reveal d2">
+        <div class="tag">Prinzip 2</div>
+        <h3>Priorisierung statt Panik</h3>
+        <p>NIS-2 erzeugt Druck — aber nicht alles ist gleich dringend. Ich sortiere nach Risiko und Wirkung, damit Ihr Budget dort landet, wo es am meisten schützt.</p>
+      </div>
+      <div class="card reveal d3">
+        <div class="tag">Prinzip 3</div>
+        <h3>Umsetzung bis zum Beweis</h3>
+        <p>Eine Maßnahme ist erst fertig, wenn sie nachweisbar funktioniert: getestetes Backup, geübter Meldeprozess, dokumentiertes System. Daran lasse ich mich messen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="para-bg" aria-hidden="true">§</div>
+      <div class="eyebrow">Kontakt</div>
+      <h2>Lassen Sie uns über Ihre Sicherheitslage sprechen.</h2>
+      <p>Kostenloses Erstgespräch, 30 Minuten, unverbindlich. Sie schildern Ihre Situation — ich sage Ihnen ehrlich, wo Sie stehen und was als Nächstes sinnvoll ist.</p>
+      <a class="btn btn-primary" href="kontakt.html">Erstgespräch anfragen <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div>© 2026 Felix Müller — IT-Security Consulting, Würzburg</div>
+    <div><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+  </div>
+</footer>
+<script>
+// ---------- Nav-Verhalten ----------
+const nav=document.getElementById('nav');
+const heroEl=document.querySelector('.hero, .sub-hero');
+function navState(){
+  nav.classList.toggle('scrolled',window.scrollY>20);
+  if(heroEl){
+    const past=window.scrollY>heroEl.offsetHeight-90;
+    nav.classList.toggle('on-hero',!past);
+  }
+}
+window.addEventListener('scroll',navState,{passive:true});
+navState();
+
+// ---------- Scroll-Reveal ----------
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+},{threshold:.15});
+document.querySelectorAll('.reveal,.step').forEach(el=>io.observe(el));
+
+// ---------- Count-Up ----------
+const fmt=new Intl.NumberFormat('de-DE');
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const cio=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,target=+el.dataset.count,suffix=el.dataset.suffix||'';
+    if(reduced){el.innerHTML=fmt.format(target)+'<small>'+suffix+'</small>';cio.unobserve(el);return;}
+    const dur=1600,start=performance.now();
+    function tick(t){
+      const p=Math.min((t-start)/dur,1);
+      const eased=1-Math.pow(1-p,3);
+      el.innerHTML=fmt.format(Math.round(target*eased))+'<small>'+suffix+'</small>';
+      if(p<1)requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('.num[data-count]').forEach(el=>cio.observe(el));
+
+// ---------- Fortschrittslinie (Timelines) ----------
+const allSteps=document.querySelectorAll('.steps');
+window.addEventListener('scroll',()=>{
+  allSteps.forEach(s=>{
+    const bar=s.querySelector('.progress');
+    if(!bar)return;
+    const r=s.getBoundingClientRect();
+    const done=Math.min(Math.max(window.innerHeight*0.7-r.top,0),r.height-20);
+    bar.style.height=done+'px';
+  });
+},{passive:true});
+
+// ---------- Betroffenheits-Check (nur NIS-2-Seite) ----------
+const checker=document.getElementById('checker');
+if(checker){
+  const state={sektor:null,groesse:null};
+  checker.querySelectorAll('.choice').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const q=btn.dataset.q;
+      state[q]=btn.dataset.v;
+      btn.parentElement.querySelectorAll('.choice').forEach(b=>b.classList.remove('sel'));
+      btn.classList.add('sel');
+      evaluate();
+    });
+  });
+  function evaluate(){
+    if(!state.sektor||!state.groesse)return;
+    const box=document.getElementById('checkResult');
+    let title='',text='';
+    if(state.sektor==='nein'){
+      title='Vermutlich nicht direkt betroffen — aber Vorsicht.';
+      text='Ihr Sektor ist nicht ausdrücklich gelistet. Sie können aber indirekt betroffen sein: NIS-2 verpflichtet regulierte Unternehmen, die Sicherheit ihrer Lieferkette zu prüfen. Wenn Sie Zulieferer oder Dienstleister einer betroffenen Einrichtung sind, werden deren Anforderungen an Sie weitergereicht.';
+    }else if(state.groesse==='klein'){
+      title='Wahrscheinlich unterhalb der Schwellenwerte.';
+      text='Mit weniger als 50 Mitarbeitenden und höchstens 10 Mio. € Umsatz liegen Sie in der Regel unter den NIS-2-Schwellen. Ausnahmen gelten für bestimmte kritische Anbieter (z. B. Vertrauensdienste, DNS, TK) — und auch hier kann die Lieferkette Sie einholen.';
+    }else if(state.groesse==='gross'){
+      title='Sehr wahrscheinlich betroffen — möglicherweise als besonders wichtige Einrichtung.';
+      text='Ab 250 Mitarbeitenden bzw. über 50 Mio. € Umsatz in einem gelisteten Sektor gelten Sie je nach Sektor als besonders wichtige Einrichtung mit den strengsten Pflichten: Registrierung, Risikomanagement nach § 30 BSIG, Meldepflichten und regelmäßige Nachweise gegenüber dem BSI.';
+    }else{
+      title='Sehr wahrscheinlich betroffen — als wichtige Einrichtung.';
+      text='Ab 50 Mitarbeitenden oder mehr als 10 Mio. € Umsatz in einem gelisteten Sektor fallen Sie in der Regel als wichtige Einrichtung unter das Gesetz: Registrierung beim BSI, Risikomanagement nach § 30 BSIG und Meldepflichten sind verbindlich — ohne Übergangsfrist.';
+    }
+    box.querySelector('b').textContent=title;
+    box.querySelector('p').textContent=text;
+    box.classList.add('show');
+  }
+}
+
+</script>
+</body>
+</html>
